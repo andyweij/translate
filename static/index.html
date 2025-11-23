@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Translator</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Translator</h1>
+            <button id="settings-btn" class="icon-btn">⚙️</button>
+        </header>
+
+        <div id="settings-panel" class="settings-panel hidden">
+            <h3>Configuration</h3>
+            <div class="form-group">
+                <label for="api-key">API Key</label>
+                <input type="password" id="api-key" placeholder="sk-..." value="">
+            </div>
+            <div class="form-group">
+                <label for="base-url">Base URL (Optional)</label>
+                <input type="text" id="base-url" placeholder="https://api.openai.com/v1">
+            </div>
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input type="text" id="model" value="gpt-3.5-turbo" placeholder="gpt-4o">
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="skip-ssl">
+                <label for="skip-ssl">Skip SSL Verification (For self-signed/IP)</label>
+            </div>
+        </div>
+
+        <div class="translation-box">
+            <div class="language-selector">
+                <select id="source-lang">
+                    <option value="auto">Detect Language</option>
+                    <option value="English">English</option>
+                    <option value="Traditional Chinese">Traditional Chinese</option>
+                    <option value="Simplified Chinese">Simplified Chinese</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                </select>
+                <span class="arrow">→</span>
+                <select id="target-lang">
+                    <option value="Traditional Chinese" selected>Traditional Chinese</option>
+                    <option value="English">English</option>
+                    <option value="Simplified Chinese">Simplified Chinese</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                </select>
+            </div>
+
+            <div class="text-areas">
+                <div class="input-area">
+                    <textarea id="input-text" placeholder="Enter text to translate..."></textarea>
+                </div>
+                <div class="output-area">
+                    <div id="output-text" class="output-placeholder">Translation will appear here...</div>
+                    <div id="loading-spinner" class="spinner hidden"></div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="translate-btn" class="primary-btn">Translate</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
