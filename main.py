@@ -23,7 +23,7 @@ async def read_index():
     return FileResponse('static/index.html')
 
 @app.post("/translate", response_model=TranslationResponse)
-async def translate(request: TranslationRequest):
+def translate(request: TranslationRequest):
     # Log the full request details
     # Masking API key for security in logs, but showing everything else
     log_payload = request.model_dump()
